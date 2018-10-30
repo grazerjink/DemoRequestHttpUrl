@@ -103,15 +103,17 @@ public class URLContentManager {
                     } else {
                         // Octet stream
                         dataLogging.append("Header: " + "Content-Type: application/octet-stream").append(lineEnd).append(lineEnd);
-                        dataLogging.append("Header: " + "ocp-apim-subscription-key: ad1e5d0cb6f64ee3998a3efe9b49738a").append(lineEnd).append(lineEnd);
+//                        dataLogging.append("Header: " + "ocp-apim-subscription-key: ad1e5d0cb6f64ee3998a3efe9b49738a").append(lineEnd).append(lineEnd);
 
                         httpURLConnection.addRequestProperty("Content-Type", "application/octet-stream");
-                        httpURLConnection.addRequestProperty("ocp-apim-subscription-key", "ad1e5d0cb6f64ee3998a3efe9b49738a");
+//                        httpURLConnection.addRequestProperty("ocp-apim-subscription-key", "ad1e5d0cb6f64ee3998a3efe9b49738a");
 
-                        OutputStream outputStream = httpURLConnection.getOutputStream();
-                        Bitmap bitmap = (Bitmap) params.get("data");
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
-                        outputStream.close();
+                        if (params != null) {
+                            OutputStream outputStream = httpURLConnection.getOutputStream();
+                            Bitmap bitmap = (Bitmap) params.get("data");
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                            outputStream.close();
+                        }
                     }
 
                     Log.e("", "===== Request body:\r\n" + dataLogging.toString());

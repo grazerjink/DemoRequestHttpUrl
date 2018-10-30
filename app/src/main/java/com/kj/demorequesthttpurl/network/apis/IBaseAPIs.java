@@ -19,4 +19,5 @@ public interface IBaseAPIs {
 //    String API_UPDATE_PROFILE = "http://125.253.113.13:81/api/Account/UserInfo";
     String API_UPDATE_PROFILE = "http://10.0.0.46:8080/api/Account/UserInfo";
     String API_CREATE_REPORT = KOI_URL + "create-report";
+    String API_VIDEO_DATA = "https://github.com/grazerjink/DemoRequestHttpUrl/blob/video/video.mp4?raw=true";
 }
